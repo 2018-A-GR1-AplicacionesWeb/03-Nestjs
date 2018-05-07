@@ -1,4 +1,4 @@
-import {Controller, Get, HttpCode, Req, Res} from "@nestjs/common";
+import {Controller, Get, HttpCode, Post, Req, Res} from "@nestjs/common";
 import Status = jest.Status;
 
 // decorator
@@ -9,6 +9,8 @@ export class UsuarioController {
         apellido: 'Eguez',
         edad: 28
     };
+
+    usuarios = [];
 
     @HttpCode(202)
     @Get('mostrar')
@@ -22,8 +24,26 @@ export class UsuarioController {
         @Res() response
     ) {
         return response
-            .status(500)
-            .send(this.usuario);
+            .status(204)
+            .send(this.usuarios);
+    }
+
+    @Post('crearUsuario')
+    crearUsuario(
+        @Req() request,
+        @Res() response
+    ) {
+        const nuevoUsuario = {
+            nombre: request.query.nombre,
+            apellido: request.query.apellido,
+            edad: request.query.edad
+        };
+
+        this.usuarios.push(nuevoUsuario);
+
+        return response
+            .status(201)
+            .send(nuevoUsuario);
     }
 
 
