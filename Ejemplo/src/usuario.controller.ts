@@ -24,7 +24,7 @@ export class UsuarioController {
         @Res() response
     ) {
         return response
-            .status(204)
+            .status(200)
             .send(this.usuarios);
     }
 
