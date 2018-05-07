@@ -15,6 +15,7 @@ export class AppController {
             'utf8',
             (error, contenidoDelArchivo) => {
                 console.log('3 Respondio');
+                const nombre = 'Adrian';
                 if (error) {
                     console.log('4 Error', error);
                     console.log('5 contenidoHtml', contenidoHtml);
@@ -22,6 +23,10 @@ export class AppController {
                     return response.send('Error');
                 } else {
                     contenidoHtml = contenidoDelArchivo;
+
+                    contenidoHtml.replace('{{nombre}}',nombre);
+
+                    
                     console.log('4 contenidoHtml', contenidoHtml);
                     console.log('5 contenidoHtml', contenidoHtml);
                     console.log('6 Termino');
