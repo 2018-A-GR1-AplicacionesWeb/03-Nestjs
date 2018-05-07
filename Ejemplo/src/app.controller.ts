@@ -24,9 +24,9 @@ export class AppController {
                 } else {
                     contenidoHtml = contenidoDelArchivo;
 
-                    contenidoHtml.replace('{{nombre}}',nombre);
+                    contenidoHtml = contenidoHtml.replace('{{nombre}}', nombre);
 
-                    
+
                     console.log('4 contenidoHtml', contenidoHtml);
                     console.log('5 contenidoHtml', contenidoHtml);
                     console.log('6 Termino');
