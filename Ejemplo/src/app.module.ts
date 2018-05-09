@@ -1,6 +1,7 @@
 import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
 import {UsuarioController} from "./usuario.controller";
+import {ParametrosController} from "./parametros.controller";
 
 @Module({
     imports: [ // OtrosModulos
@@ -8,7 +9,8 @@ import {UsuarioController} from "./usuario.controller";
     ],
     controllers: [ // Controladores
         AppController,
-        UsuarioController
+        UsuarioController,
+        ParametrosController
     ],
     components: [
 
