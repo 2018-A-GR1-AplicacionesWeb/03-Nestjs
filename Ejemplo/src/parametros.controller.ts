@@ -1,4 +1,4 @@
-import {Body, Controller, Param, Post, Query, Req, Res} from "@nestjs/common";
+import {Body, Controller, Get, Param, Post, Query, Req, Res} from "@nestjs/common";
 
 @Controller('Parametros')
 export class ParametrosController {
@@ -15,6 +15,18 @@ export class ParametrosController {
             queryParams: queryParams,
             bodyParams: bodyParams,
             paramsParams: paramsParams
+        };
+        return response.send(respuesta);
+    }
+
+    @Get('ReqRes')
+    requestResponse(
+        @Req() request,
+        @Res() response
+    ) {
+        const respuesta = {
+            baseUrl:request.baseUrl,
+            hostname:request.hostname
         };
         return response.send(respuesta);
     }
