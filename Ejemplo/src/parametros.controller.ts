@@ -37,7 +37,7 @@ export class ParametrosController {
             headers,
         };
         console.log(respuesta);
-        return response.send(respuesta);
+        return response.redirect('/Usuario/mostrar');///Usuario/mostrar
     }
 
 }
