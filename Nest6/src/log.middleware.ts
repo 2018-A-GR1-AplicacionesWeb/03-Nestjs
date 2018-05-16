@@ -1,7 +1,12 @@
 import {Injectable, MiddlewareFunction, NestMiddleware} from "@nestjs/common";
+import {UsuarioService} from "./usuario.service";
 
 @Injectable()
 export class LogMiddleware implements NestMiddleware {
+
+    constructor(private _usuarioService: UsuarioService) {
+
+    }
 
     resolve(nombreAplicacion: string, anio: number): MiddlewareFunction {
         return (request, response, next) => {
@@ -16,7 +21,8 @@ export class LogMiddleware implements NestMiddleware {
                 protocol: request.protocol,
                 headers: request.headers,
             };
-            console.log('**** DESDE MIDDLEWARE ****', nombreAplicacion, anio);
+            console.log('**** DESDE MIDDLEWARE ****', nombreAplicacion, anio,
+                this._usuarioService.mostrarUsuarios());
             console.log(respuesta);
             next(); // ERROR SI NO SE LLAMA
         };
