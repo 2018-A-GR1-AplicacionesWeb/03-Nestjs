@@ -69,22 +69,22 @@ export class ParametrosController {
         @Res() response
     ) {
         const parametros = {
-            nombreCookie: request.params.query.nombre,
-            valorCookie: request.params.query.valor,
+            nombreCookie: request.query.nombre,
+            valorCookie: request.query.valor,
         };
         // Seteando la cookie 1) NOMBRE 2) VALOR
         response.cookie(parametros.nombreCookie, parametros.valorCookie);
         return response.send(parametros)
     }
 
-    @Get('establecerCookie')
-    establecerCookie(
+    @Get('cookie/:nombre')
+    leerCookie(
         @Req() request,
         @Res() response
     ) {
         const parametros = {
-            nombreCookie: request.params.query.nombre,
-            valorCookie: request.params.query.valor,
+            nombreCookie: request.query.nombre,
+            valorCookie: request.query.valor,
         };
         // Seteando la cookie 1) NOMBRE 2) VALOR
         response.cookie(parametros.nombreCookie, parametros.valorCookie);
