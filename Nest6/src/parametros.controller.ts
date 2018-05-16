@@ -82,13 +82,23 @@ export class ParametrosController {
         @Req() request,
         @Res() response
     ) {
-        const parametros = {
-            nombreCookie: request.query.nombre,
-            valorCookie: request.query.valor,
-        };
-        // Seteando la cookie 1) NOMBRE 2) VALOR
-        response.cookie(parametros.nombreCookie, parametros.valorCookie);
-        return response.send(parametros)
+        const nombreCookie = request.params.nombre;
+        const existeCookie = request.cookies[nombreCookie];
+        if (existeCookie) {
+            return response.send({
+                valor: existeCookie
+            })
+        } else {
+            return response
+                .status(404)
+                .send({
+                    mensaje: 'No encontramos cookie'
+                })
+        }
+
+        // request.cookies.adrian;
+        // request.cookies["adrian"];
+
     }
 
 
