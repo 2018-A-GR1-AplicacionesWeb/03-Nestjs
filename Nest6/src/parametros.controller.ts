@@ -63,4 +63,33 @@ export class ParametrosController {
             .send(usuarioCreado);
     }
 
+    @Get('establecerCookie')
+    establecerCookie(
+        @Req() request,
+        @Res() response
+    ) {
+        const parametros = {
+            nombreCookie: request.params.query.nombre,
+            valorCookie: request.params.query.valor,
+        };
+        // Seteando la cookie 1) NOMBRE 2) VALOR
+        response.cookie(parametros.nombreCookie, parametros.valorCookie);
+        return response.send(parametros)
+    }
+
+    @Get('establecerCookie')
+    establecerCookie(
+        @Req() request,
+        @Res() response
+    ) {
+        const parametros = {
+            nombreCookie: request.params.query.nombre,
+            valorCookie: request.params.query.valor,
+        };
+        // Seteando la cookie 1) NOMBRE 2) VALOR
+        response.cookie(parametros.nombreCookie, parametros.valorCookie);
+        return response.send(parametros)
+    }
+
+
 }

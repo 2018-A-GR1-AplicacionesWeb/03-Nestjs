@@ -42,7 +42,7 @@ export class UsuarioController {
         @Res() response
     ) {
         const nuevoUsuario = {
-            nombre: request.query.nombre,
+                nombre: request.query.nombre,
             apellido: request.query.apellido,
             edad: request.query.edad
         };
