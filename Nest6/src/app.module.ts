@@ -11,7 +11,10 @@ import {ParametrosController} from "./parametros.controller";
         AppController,
         UsuarioController,
         ParametrosController],
-    providers: [AppService, UsuarioService],
+    providers: [
+        AppService,
+        UsuarioService
+    ],
 })
 export class AppModule {
 }
