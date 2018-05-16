@@ -21,8 +21,9 @@ export class LogMiddleware implements NestMiddleware {
                 protocol: request.protocol,
                 headers: request.headers,
             };
-            console.log('**** DESDE MIDDLEWARE ****', nombreAplicacion, anio,
-                this._usuarioService.mostrarUsuarios());
+            const usuarios = this._usuarioService.mostrarUsuarios();
+            console.log('****', usuarios);
+            console.log('**** DESDE MIDDLEWARE ****', nombreAplicacion, anio);
             console.log(respuesta);
             next(); // ERROR SI NO SE LLAMA
         };

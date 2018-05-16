@@ -4,7 +4,7 @@ import {AppService} from './app.service';
 import {UsuarioController} from "./usuario.controller";
 import {UsuarioService} from "./usuario.service";
 import {ParametrosController} from "./parametros.controller";
-import {LogMiddleware} from "../../Ejemplo/src/log.middleware";
+import {LogMiddleware} from './log.middleware';
 
 @Module({
     imports: [],
