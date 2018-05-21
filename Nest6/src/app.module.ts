@@ -18,7 +18,10 @@ import {UsuarioEntity} from "./usuario/usuario.entity";
             username: 'profesor@web2018agr2',
             password: 'Javascript1',
             database: 'web',
-            entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+            entities: [
+                __dirname +
+                '/../**/*.entity{.ts,.js}'
+            ],
             synchronize: true,
             ssl: true
         }),
