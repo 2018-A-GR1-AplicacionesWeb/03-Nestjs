@@ -2,7 +2,7 @@ import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {UsuarioEntity} from "../usuario/usuario.entity";
 
 
-@Entity()
+@Entity('web_eguezv_foto')
 export class FotoEntity {
     @PrimaryGeneratedColumn()
     id: number;
@@ -14,6 +14,6 @@ export class FotoEntity {
         type => UsuarioEntity,
     usuarioEntity => usuarioEntity.fotos)
 
-    usuarioId: UsuarioEntity;
+    usuario: UsuarioEntity;
 
 }

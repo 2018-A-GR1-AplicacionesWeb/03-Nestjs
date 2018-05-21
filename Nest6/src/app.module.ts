@@ -8,6 +8,7 @@ import {LogMiddleware} from './log.middleware';
 
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {UsuarioEntity} from "./usuario/usuario.entity";
+import {FotoEntity} from "./foto/foto.entity";
 
 @Module({
     imports: [
@@ -26,7 +27,8 @@ import {UsuarioEntity} from "./usuario/usuario.entity";
             ssl: true
         }),
         TypeOrmModule.forFeature([
-            UsuarioEntity
+            UsuarioEntity,
+            FotoEntity
         ])
     ],
     controllers: [
