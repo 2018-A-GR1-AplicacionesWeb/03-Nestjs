@@ -12,19 +12,19 @@ export class UsuarioPipe implements PipeTransform {
         const schema = Joi
             .object()
             .keys({
-                nombre:Joi
+                nombre: Joi
                     .string()
                     .alphanum()
                     .min(3)
                     .max(30)
                     .required(),
-                apellido:Joi
+                apellido: Joi
                     .string()
                     .alphanum()
                     .min(3)
                     .max(30)
                     .required(),
-                edad:Joi
+                edad: Joi
                     .number()
                     .integer()
                     .greater(0)
