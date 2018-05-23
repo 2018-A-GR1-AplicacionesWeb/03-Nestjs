@@ -24,7 +24,13 @@ export class UsuarioController {
 
     @HttpCode(202)
     @Get('mostrar')
-    @ReflectMetadata('permisos', ['publico'])
+    @ReflectMetadata('permisos', {
+        permisos:'publico',
+        roles:[
+            'usuario',
+            'administrador'
+        ]
+    })
 
 
     mostrarUsuario(
