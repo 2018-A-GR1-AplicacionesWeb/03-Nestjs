@@ -12,8 +12,16 @@ export class CrearUsuarioGuard implements CanActivate {
         Promise<boolean> |
         Observable<boolean> {
 
-        return false;
-        
+        const request = context.switchToHttp().getRequest();
+        const cabeceras = request.headers;
+        console.log('Contexto: ', context);
+        console.log('Cabeceras: ', request.headers);
+
+        if (cabeceras.hola === "Mundo") {
+            return true
+        } else {
+            return false;
+        }
     }
 
 }
