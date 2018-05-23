@@ -9,6 +9,6 @@ export class PeticionErroneaException extends HttpException {
             statusCode: HttpStatus.BAD_REQUEST,
             nivelError: _nivelError,
             detalle: _mensaje
-        }, HttpStatus.BAD_REQUEST);
+        }, HttpStatus.NOT_FOUND);
     }
 }
