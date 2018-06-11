@@ -19,12 +19,22 @@ export class JwtGuard implements CanActivate {
             .getRequest();
         const jwt = request.headers.authentication;
 
+        console.log('request.headers', request.headers);
+        console.log('jwt', jwt);
         if (jwt) {
             this._jwtService
                 .verificarToken(
                     jwt,
                     (error, data) => {
-                        return !error;
+                        console.log('error', error);
+                        console.log('data', data);
+                        if (error) {
+                            console.log('Existe error');
+                            return false
+                        } else {
+                            console.log('No existe error');
+                            return true
+                        }
                     }
                 );
 
