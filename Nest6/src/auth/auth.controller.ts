@@ -46,4 +46,39 @@ export class AuthController {
 
     }
 
+    @Post('verificarJWT')
+    verificarJWT(
+        @Body('jwt') jwt: string,
+    ) {
+        const tieneParametros = jwt;
+        if (tieneParametros) {
+            this._jwtService
+                .verificarToken(
+                    jwt,
+                    (error, data) => {
+                        if (error) {
+                            throw new BadRequestException(
+                                {
+                                    mensaje: 'Jwt invalido',
+                                    error: error
+                                }
+                            )
+                        } else {
+                            return {
+                                mensaje: 'Ok',
+                                data: data
+                            }
+                        }
+                    }
+                )
+        } else {
+            throw new BadRequestException(
+                {
+                    mensaje: 'No envia jwt'
+                }
+            )
+        }
+
+    }
+
 }
