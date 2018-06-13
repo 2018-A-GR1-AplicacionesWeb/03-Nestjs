@@ -27,6 +27,17 @@ export class JwtService {
                 token,
                 this.secreto,
                 callback);
+    }
+
+    verificarTokenSync(token: string) {
+        try {
+            const tokenValido = this.jwt.verify(token, this.secreto);
+            if (tokenValido) {
+                return true;
+            }
+        } catch (e) {
+            return false;
+        }
 
     }
 

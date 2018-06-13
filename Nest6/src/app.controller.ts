@@ -9,13 +9,13 @@ export class AppController {
     }
 
     @Get()
-    @ReflectMetadata("necesitaProteccion", false)
+    @ReflectMetadata("nesecitaProteccion", false)
     root(): string {
         return this.appService.root();
     }
 
     @Get('hola')
-    @ReflectMetadata("necesitaProteccion", true)
+    @ReflectMetadata("nesecitaProteccion", true)
     hola(): string {
         return 'Hola amigos';
     }
