@@ -14,32 +14,39 @@ export class JwtGuard implements CanActivate {
         : boolean |
         Promise<boolean> |
         Observable<boolean> {
-        const request = context
-            .switchToHttp()
-            .getRequest();
-        const jwt = request.headers.authentication;
 
-        console.log('request.headers', request.headers);
-        console.log('jwt', jwt);
-        if (jwt) {
-            this._jwtService
-                .verificarToken(
-                    jwt,
-                    (error, data) => {
-                        console.log('error', error);
-                        console.log('data', data);
-                        if (error) {
-                            console.log('Existe error');
-                            return false
-                        } else {
-                            console.log('No existe error');
-                            return true
+
+        const necesitaProteccion = this.reflector.get(
+            "nesecitaProteccion",
+            context.getHandler());
+
+        if (necesitaProteccion) {
+
+            const request = context
+                .switchToHttp()
+                .getRequest();
+
+            const jwt = request.headers.authentication;
+
+            if (jwt) {
+                this._jwtService
+                    .verificarToken(
+                        jwt,
+                        (error, data) => {
+                            if (error) {
+                                return false;
+                            } else {
+                                return true;
+                            }
                         }
-                    }
-                );
+                    );
+
+            } else {
+                return false;
+            }
 
         } else {
-            return false;
+            return true
         }
 
     }
