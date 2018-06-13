@@ -12,11 +12,13 @@ export class JwtService {
     emitirToken(payload: any) {
         return this.jwt.sign(
             {
-                expiresIn: this.tiempoVidaToken,
-                data: payload
+                payload: payload
             }
             ,
-            this.secreto);
+            this.secreto,
+            {
+                expiresIn: this.tiempoVidaToken,
+            });
     }
 
     verificarToken(token: string, callback) {
